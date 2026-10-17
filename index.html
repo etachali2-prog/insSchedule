@@ -4,7 +4,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Inspection Schedule | MELBA Technical Department</title>
 
 <style>
@@ -18,14 +17,12 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     min-height: 100vh;
     padding: 25px 15px;
-    color: #ffffff;
-
+    color: #fff;
     background:
-        radial-gradient(circle at top right, #123e72 0, transparent 40%),
+        radial-gradient(circle at top right, #123e72, transparent 40%),
         linear-gradient(135deg, #050b18, #101b32 60%, #050a14);
 }
 
-/* Page header */
 .header {
     text-align: center;
     margin: 10px auto 30px;
@@ -51,16 +48,15 @@ body {
     color: #b8c7df;
     font-size: 14px;
     letter-spacing: 1px;
+    line-height: 1.8;
 }
 
-/* Main form container */
 .cont {
     width: 100%;
     max-width: 1150px;
     margin: auto;
     padding: 28px;
     text-align: center;
-
     background: rgba(8, 17, 34, 0.94);
     border: 1px solid #29466e;
     border-radius: 20px;
@@ -74,7 +70,6 @@ body {
     margin-bottom: 25px;
 }
 
-/* Three columns */
 .blocks {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -145,7 +140,7 @@ body {
     padding: 12px;
     border: 1px solid #cbd5e1;
     border-radius: 8px;
-    background: #ffffff;
+    background: #fff;
     color: #1e293b;
     font-size: 15px;
     outline: none;
@@ -161,7 +156,6 @@ body {
     color: #94a3b8;
 }
 
-/* Submit button */
 .button-area {
     margin-top: 28px;
 }
@@ -172,13 +166,11 @@ body {
     border: none;
     border-radius: 40px;
     cursor: pointer;
-
-    color: #ffffff;
+    color: white;
     background: linear-gradient(110deg, #00bfc8, #0789f5);
     font-size: 17px;
     font-weight: bold;
     letter-spacing: 0.5px;
-
     box-shadow: 0 7px 25px rgba(0, 180, 230, 0.25);
     transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -221,7 +213,6 @@ body {
     background: #153d31;
 }
 
-/* Footer */
 .footer {
     text-align: center;
     margin-top: 25px;
@@ -253,7 +244,7 @@ body {
     max-width: 380px;
     padding: 30px;
     border-radius: 16px;
-    background: #ffffff;
+    background: #fff;
     color: #1e293b;
     text-align: center;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
@@ -303,7 +294,6 @@ body {
     font-size: 13px;
 }
 
-/* Tablet and mobile */
 @media (max-width: 760px) {
     body {
         padding: 15px 10px;
@@ -371,6 +361,204 @@ body {
 
     <div class="form-title">📋 Machine Inspection Assignment</div>
 
-    <form
-        id="inspectionForm"
-        action="https://script.google.com/macros/s/AKfycbz3S6wFeWV-CBQZUr_ip5WtYhfUlEnGLMQpfOjiT29Sb9zu1bMVOCPFaiG6
+    <form id="inspectionForm"
+          action="https://script.google.com/macros/s/AKfycbz3S6wFeWV-CBQZUr_ip5WtYhfUlEnGLMQpfOjiT29Sb9zu1bMVOCPFaiG6-T0g6TxfpA/exec"
+          method="POST">
+
+        <div class="blocks">
+
+            <!-- Block D -->
+            <section class="block block-d">
+                <div class="block-heading">🏭 Block-D</div>
+                <div class="block-body">
+
+                    <div class="field">
+                        <label for="d1">D1 Inspection</label>
+                        <input id="d1" name="d1" placeholder="Enter D1">
+                    </div>
+
+                    <div class="field">
+                        <label for="d2">D2 Inspection</label>
+                        <input id="d2" name="d2" placeholder="Enter D2">
+                    </div>
+
+                    <div class="field">
+                        <label for="d3">D3 Inspection</label>
+                        <input id="d3" name="d3" placeholder="Enter D3">
+                    </div>
+
+                    <div class="field">
+                        <label for="d4">D4 Inspection</label>
+                        <input id="d4" name="d4" placeholder="Enter D4">
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Block C -->
+            <section class="block block-c">
+                <div class="block-heading">🏭 Block-C</div>
+                <div class="block-body">
+
+                    <div class="field">
+                        <label for="c1">C1 Inspection</label>
+                        <input id="c1" name="c1" placeholder="Enter C1">
+                    </div>
+
+                    <div class="field">
+                        <label for="c2">C2 Inspection</label>
+                        <input id="c2" name="c2" placeholder="Enter C2">
+                    </div>
+
+                    <div class="field">
+                        <label for="c3">C3 Inspection</label>
+                        <input id="c3" name="c3" placeholder="Enter C3">
+                    </div>
+
+                    <div class="field">
+                        <label for="c4">C4 Inspection</label>
+                        <input id="c4" name="c4" placeholder="Enter C4">
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Other inspections -->
+            <section class="block block-o">
+                <div class="block-heading">⚙️ Others</div>
+                <div class="block-body">
+
+                    <div class="field">
+                        <label for="o1">Other Inspection 1</label>
+                        <input id="o1" name="o1" placeholder="Enter O1">
+                    </div>
+
+                    <div class="field">
+                        <label for="o2">Other Inspection 2</label>
+                        <input id="o2" name="o2" placeholder="Enter O2">
+                    </div>
+
+                    <div class="field">
+                        <label for="o3">Other Inspection 3</label>
+                        <input id="o3" name="o3" placeholder="Enter O3">
+                    </div>
+
+                    <div class="field">
+                        <label for="o4">Other Inspection 4</label>
+                        <input id="o4" name="o4" placeholder="Enter O4">
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+
+        <div class="button-area">
+            <button type="submit" id="sub">➤ &nbsp; Submit Schedule</button>
+        </div>
+
+        <div id="status" role="status" aria-live="polite"></div>
+
+    </form>
+</main>
+
+<footer class="footer">
+    <span>MELBA PRINTING PUBLISHING & PACKAGING S.C.</span><br>
+    Technical Department | Inspection Schedule
+</footer>
+
+<script>
+/*
+ BASIC CLIENT-SIDE PASSWORD ONLY.
+
+ This password is visible in the source code.
+ It does not securely protect the Google Sheet.
+*/
+const CORRECT_PASSWORD = "MySecretPassword123";
+
+const passwordForm = document.getElementById("passwordForm");
+const passwordInput = document.getElementById("passwordInput");
+const passwordError = document.getElementById("passwordError");
+const passwordScreen = document.getElementById("passwordScreen");
+const protectedContent = document.getElementById("protected-content");
+
+passwordForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    if (passwordInput.value === CORRECT_PASSWORD) {
+        passwordScreen.style.display = "none";
+        protectedContent.hidden = false;
+        passwordError.textContent = "";
+    } else {
+        passwordError.textContent = "Incorrect password. Please try again.";
+        passwordInput.value = "";
+        passwordInput.focus();
+    }
+});
+
+/* Google Sheets submission */
+const form = document.getElementById("inspectionForm");
+const submitBtn = document.getElementById("sub");
+const statusBox = document.getElementById("status");
+
+function showStatus(message, type) {
+    statusBox.textContent = message;
+    statusBox.className = type;
+}
+
+form.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+    const values = {};
+
+    for (const [key, value] of formData.entries()) {
+        values[key] = value.trim();
+    }
+
+    if (!Object.values(values).some(value => value !== "")) {
+        showStatus("Please enter at least one inspection value.", "error");
+        return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+    showStatus("Sending your inspection schedule...", "info");
+
+    try {
+        /*
+         no-cors lets the browser send the request, but prevents
+         JavaScript from reading Google's response. A resolved fetch
+         does not confirm that the spreadsheet saved the data.
+        */
+        await fetch(form.action, {
+            method: "POST",
+            mode: "no-cors",
+            body: formData
+        });
+
+        showStatus(
+            "Request sent. Please check Google Sheets to confirm that " +
+            "the inspection schedule was saved before submitting again.",
+            "info"
+        );
+
+    } catch (error) {
+        console.error("Submission error:", error);
+
+        showStatus(
+            "Unable to send the request. Check your internet connection " +
+            "and Google Apps Script deployment, then try again.",
+            "error"
+        );
+
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "➤ Submit Schedule";
+    }
+});
+</script>
+
+</body>
+</html>
+```
