@@ -1,87 +1,376 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .cont{background-color: rgb(12, 11, 18);height: 240px;width: 603px;text-align: center;position: relative;color:goldenrod}
-        .div1{width: 200px;height: 190px;position: absolute;border: 1px solid;background-color:white;}
-        .div2{width: 200px;height: 190px;margin-left: 200px;position: absolute;margin-top: 0px;border: 1px solid;background-color: aliceblue;}
-        .div3{width: 200px;height: 190px;position: absolute;margin-left: 400px;border: 1px solid;background-color: aliceblue;}
-       #sub{background-color: aqua;margin-top: 215px;position: absolute;left: 50%;transform: translateX(-50%);cursor: pointer;}
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Inspection Schedule | MELBA Technical Department</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    padding: 25px 15px;
+    color: #ffffff;
+
+    background:
+        radial-gradient(circle at top right, #123e72 0, transparent 40%),
+        linear-gradient(135deg, #050b18, #101b32 60%, #050a14);
+}
+
+/* Page header */
+.header {
+    text-align: center;
+    margin: 10px auto 30px;
+}
+
+.header .icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.header h1 {
+    font-size: clamp(25px, 4vw, 42px);
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.header h1 span {
+    color: #ffc629;
+}
+
+.header p {
+    margin-top: 12px;
+    color: #b8c7df;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+/* Main form container */
+.cont {
+    width: 100%;
+    max-width: 1150px;
+    margin: auto;
+    padding: 28px;
+    text-align: center;
+
+    background: rgba(8, 17, 34, 0.94);
+    border: 1px solid #29466e;
+    border-radius: 20px;
+    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.4);
+}
+
+.form-title {
+    font-size: 23px;
+    font-weight: bold;
+    color: #ffc629;
+    margin-bottom: 25px;
+}
+
+/* Three columns */
+.blocks {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    text-align: left;
+}
+
+.block {
+    overflow: hidden;
+    border-radius: 14px;
+    background: #f5f8fc;
+    color: #26364c;
+    border: 1px solid #d5deeb;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.block:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.block-heading {
+    padding: 18px 10px;
+    color: white;
+    text-align: center;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.block-d .block-heading {
+    background: linear-gradient(135deg, #f6c52d, #d88b00);
+    color: #172033;
+}
+
+.block-c .block-heading {
+    background: linear-gradient(135deg, #087ee5, #0752a8);
+}
+
+.block-o .block-heading {
+    background: linear-gradient(135deg, #8050d8, #5227a4);
+}
+
+.block-body {
+    padding: 20px 16px;
+}
+
+.field {
+    margin-bottom: 16px;
+}
+
+.field:last-child {
+    margin-bottom: 0;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #50627b;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+.field input {
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #1e293b;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.field input:focus {
+    border-color: #1688e8;
+    box-shadow: 0 0 0 3px rgba(22, 136, 232, 0.15);
+}
+
+.field input::placeholder {
+    color: #94a3b8;
+}
+
+/* Submit button */
+.button-area {
+    margin-top: 28px;
+}
+
+#sub {
+    width: min(100%, 320px);
+    padding: 16px 25px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+
+    color: #ffffff;
+    background: linear-gradient(110deg, #00bfc8, #0789f5);
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+
+    box-shadow: 0 7px 25px rgba(0, 180, 230, 0.25);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#sub:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0, 180, 230, 0.4);
+}
+
+#sub:disabled {
+    cursor: wait;
+    opacity: 0.65;
+}
+
+#status {
+    display: none;
+    max-width: 600px;
+    margin: 20px auto 0;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+#status.info {
+    display: block;
+    color: #bfdbfe;
+    background: #172f50;
+}
+
+#status.error {
+    display: block;
+    color: #fecaca;
+    background: #511f2a;
+}
+
+#status.success {
+    display: block;
+    color: #bbf7d0;
+    background: #153d31;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 25px;
+    padding: 15px;
+    color: #94a8c5;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.footer span {
+    color: #ffc629;
+    font-weight: bold;
+}
+
+/* Password screen */
+#passwordScreen {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #050b18, #123e72);
+}
+
+.password-card {
+    width: 100%;
+    max-width: 380px;
+    padding: 30px;
+    border-radius: 16px;
+    background: #ffffff;
+    color: #1e293b;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.password-card .lock {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.password-card h2 {
+    color: #123e72;
+    margin-bottom: 10px;
+}
+
+.password-card p {
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.password-card input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+.password-card button {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: #0878c9;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#passwordError {
+    margin-top: 12px;
+    color: #dc2626;
+    font-size: 13px;
+}
+
+/* Tablet and mobile */
+@media (max-width: 760px) {
+    body {
+        padding: 15px 10px;
+    }
+
+    .cont {
+        padding: 18px 12px;
+    }
+
+    .blocks {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .block-heading {
+        font-size: 19px;
+    }
+
+    .block-body {
+        padding: 18px;
+    }
+
+    .form-title {
+        font-size: 20px;
+    }
+}
+</style>
 </head>
+
 <body>
-    <!-- Added id to form and set action to web app URL -->
-    <form id="inspectionForm" action="https://script.google.com/macros/s/AKfycbz3S6wFeWV-CBQZUr_ip5WtYhfUlEnGLMQpfOjiT29Sb9zu1bMVOCPFaiG6-T0g6TxfpA/exec" method="POST">
-        <div class="cont"> Inspection Schedule
-            <!-- Added name attributes to all inputs -->
-            <div class="div1"><u> Block-D</u>
-                <input name="d1"><br><br>
-                <input name="d2"><br><br>
-                <input name="d3"><br><br>
-                <input name="d4">
-            </div>
-            <div class="div2"><u> Block-C</u>
-                <input name="c1"><br><br>
-                <input name="c2"><br><br>
-                <input name="c3"><br><br>
-                <input name="c4">
-            </div>
-            <div class="div3"><u>Others</u>
-                <input name="o1"><br><br>
-                <input name="o2"><br><br>
-                <input name="o3"><br><br>
-                <input name="o4">
-            </div>
-            <input type="submit" id="sub" value="Submit">
-        </div>
-    </form>
 
-    <script>
-        const form = document.getElementById('inspectionForm');
-        form.addEventListener('submit', e => {
-            e.preventDefault(); // Stop page refresh
-            
-            const submitBtn = document.getElementById('sub');
-            submitBtn.value = "Sending...";
-            submitBtn.disabled = true;
+<!-- Password screen -->
+<div id="passwordScreen">
+    <div class="password-card">
+        <div class="lock">🔐</div>
+        <h2>Inspection Access</h2>
+        <p>
+            MELBA Technical Department<br>
+            Enter the password to open the inspection schedule.
+        </p>
 
-            fetch(form.action, { method: 'POST', body: new FormData(form) })
-                .then(response => {
-                    alert('Data sent successfully to Google Sheets!');
-                    form.reset(); // Clear the form
-                    submitBtn.value = "Submit";
-                    submitBtn.disabled = false;
-                })
-                .catch(error => {
-                    console.error('Error!', error.message);
-                    alert('Something went wrong. Check console.');
-                    submitBtn.value = "Submit";
-                    submitBtn.disabled = false;
-                });
-        });
-     
-        function checkPassword() {
-            // Set your password here!
-            const correctPassword = "MySecretPassword123"; 
-            
-            const userPassword = prompt("Please enter the password to view this sheet:");
+        <form id="passwordForm">
+            <input
+                type="password"
+                id="passwordInput"
+                placeholder="Enter password"
+                autocomplete="current-password"
+                required
+            >
+            <button type="submit">Unlock Schedule</button>
+            <div id="passwordError"></div>
+        </form>
+    </div>
+</div>
 
-            if (userPassword === correctPassword) {
-                // Show the sheet if the password is correct
-                document.getElementById('protected-content').style.display = 'block';
-                document.body.style.paddingTop = '20px'; // Reset padding
-            } else {
-                alert("Incorrect password. Access denied.");
-                window.location.href = "https://google.com"; // Redirect them away
-            }
-        }
+<!-- Page heading -->
+<header class="header">
+    <div class="icon">⚙️</div>
+    <h1>Inspection <span>Schedule</span></h1>
+    <p>ENSURE SAFETY &nbsp; • &nbsp; MAINTAIN PERFORMANCE &nbsp; • &nbsp; IMPROVE RELIABILITY</p>
+</header>
 
-        // Run the password check as soon as the page starts loading
-        window.onload = checkPassword;
- 
-    </script>
-</body>
-</html>
+<!-- Inspection form -->
+<main class="cont" id="protected-content" hidden>
+
+    <div class="form-title">📋 Machine Inspection Assignment</div>
+
+    <form
+        id="inspectionForm"
+        action="https://script.google.com/macros/s/AKfycbz3S6wFeWV-CBQZUr_ip5WtYhfUlEnGLMQpfOjiT29Sb9zu1bMVOCPFaiG6
